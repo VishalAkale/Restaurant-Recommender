@@ -1,0 +1,12 @@
+<!-- templates/header.html -->
+<header class="hero small header-flex">
+    <div>
+        <h2>Recommended Restaurants</h2>
+        {% if cuisine and city %}
+        <p>Results for: <b>{{ cuisine }}</b> in <b>{{ city }}</b></p>
+        {% endif %}
+        <div class="back-wrapper">
+            <a href="/" class="back-btn">← Back</a>
+        </div>
+    </div>
+</header>

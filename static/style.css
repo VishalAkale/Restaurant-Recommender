@@ -1,0 +1,283 @@
+:root{
+    --electric-blue: #3D5AFE;
+    --cyan: #18FFFF;
+    --rich-black: #02040F;
+    --white-smoke: #F5F5F5;
+    --card-bg: #0b1220;
+    --muted: #b9cad6;
+}
+
+/* GLOBAL */
+*{
+    box-sizing: border-box;
+    font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica Neue, Arial;
+}
+
+body{
+    margin:0;
+    background: linear-gradient(180deg, #05102a 0%, #041226 100%);
+    color:var(--white-smoke);
+    min-height:100vh;
+}
+
+.container{
+    max-width:980px;
+    margin:32px auto;
+    padding:20px;
+}
+
+/* HEADER BOX */
+.hero{
+    background:linear-gradient(90deg,var(--electric-blue),var(--cyan));
+    padding:22px;
+    border-radius:12px;
+    color:var(--rich-black);
+    box-shadow: 0 8px 30px rgba(3,6,23,0.6);
+}
+
+.hero.small h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.hero.small p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(0,0,0,0.7);
+}
+
+/* BACK BUTTON BELOW HEADER */
+.back-btn {
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: #102542 !important; /* deep blue, strong contrast */
+    background: #fff; /* pure white */
+    padding: 12px 36px;
+    border-radius: 12px;
+    border: 3px solid #18FFFF; /* cyan border for pop */
+    transition: 0.25s;
+    display: inline-block;
+    box-shadow: 0 4px 24px rgba(24,255,255,0.13), 0 2px 8px rgba(3,6,23,0.12);
+    letter-spacing: 0.05em;
+    opacity: 1;
+    outline: none;
+}
+.back-btn:hover, .back-btn:focus {
+    background: #f8d90f;    /* bright yellow */
+    color: #041226 !important; /* almost black */
+    border-color: #3D5AFE;  /* electric blue */
+    transform: translateY(-2px) scale(1.08);
+    box-shadow: 0 12px 36px rgba(24,255,255,0.19), 0 4px 18px rgba(3,6,23,0.13);
+    opacity: 1;
+}
+.back-btn:disabled, .back-btn[disabled] {
+    background: #b9cad6 !important;
+    color: #fff !important;
+    border: 3px solid #b9cad6;
+    opacity: 1 !important;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+
+/* MAIN CARD */
+.card{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding:18px;
+    border-radius:12px;
+    margin-top:18px;
+    border:1px solid rgba(255,255,255,0.03);
+}
+
+/* INPUT FIELDS */
+.row{
+    margin-bottom:12px;
+}
+
+.row label{
+    display:block;
+    color:var(--muted);
+    font-size:0.85rem;
+    margin-bottom:6px;
+}
+
+.row input[type="text"],
+.row input[type="number"],
+.row input[list],
+input {
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.18) !important;
+    background:#0d1526 !important;
+    color:var(--white-smoke) !important;
+    transition:0.2s;
+}
+
+input::placeholder {
+    color:#7b8ca5 !important;
+}
+
+input:focus {
+    background:#111c30 !important;
+    border-color:var(--cyan) !important;
+    outline:none !important;
+    box-shadow:0 0 8px rgba(24,255,255,0.3) !important;
+}
+
+/* DOUBLE FIELDS */
+.row.double{
+    display:flex;
+    gap:12px;
+}
+
+.row.double > div{
+    flex:1;
+}
+
+/* BUTTON */
+.back-wrapper {
+    margin-top: 12px;
+    margin-left: 4px;
+}
+.back-btn {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--electric-blue) !important;
+    background: rgba(255, 255, 255, 0.20);
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: 0.25s ease;
+    display: inline-block;
+}
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
+}
+
+
+/* SUGGESTIONS */
+.suggestions .item{
+    background:var(--rich-black);
+    padding:8px;
+    border-radius:8px;
+    margin-top:6px;
+    border:1px solid rgba(255,255,255,0.05);
+    cursor:pointer;
+    color:var(--white-smoke);
+}
+
+.suggestions .item:hover{
+    background:rgba(24,255,255,0.06);
+}
+
+/* RESULTS GRID */
+.grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-top: 18px !important;
+}
+
+/* RESULT CARD */
+.card-small {
+    background: #0b1220;
+    border: 1px solid rgba(24, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 14px;
+    transition: 0.25s ease;
+}
+
+.card-small:hover {
+    border-color: rgba(24, 255, 255, 0.45);
+    box-shadow: 0 0 12px rgba(24, 255, 255, 0.30);
+    transform: translateY(-3px);
+}
+
+.card-small h3{
+    margin:0 0 6px;
+    font-size:1.05rem;
+}
+
+.card-small .meta{
+    font-size:0.9rem;
+    color:var(--muted);
+    margin-bottom:8px;
+}
+
+.card-small .info{
+    font-size:0.85rem;
+    color:var(--muted);
+    margin-bottom:8px;
+}
+
+.card-small .visit{
+    display:inline-block;
+    padding:8px 12px;
+    border-radius:8px;
+    background:var(--cyan);
+    color:var(--rich-black);
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:18px;
+    text-align:center;
+    color:var(--muted);
+}
+
+.btn, button.btn, #searchBtn {
+    padding: 10px 24px;
+    border-radius: 10px;
+    background: var(--electric-blue);
+    color: white;
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    transition: 0.25s;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 16px rgba(61,90,254,0.18);
+    letter-spacing: 0.03em;
+}
+.btn:hover, button.btn:hover, #searchBtn:hover {
+    background: var(--cyan);
+    color: var(--rich-black);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(24,255,255,0.16);
+}
+
+/* FIX ONLY ALIGNMENT — NO OTHER CHANGES */
+
+/* Make header a flex container */
+header.hero.small {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+/* Ensure title + subtitle stay together */
+header.hero.small > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Keep Back button on the right */
+.back-wrapper {
+    margin: 0 !important; 
+    padding: 0 !important;
+    display: block !important;
+}
+
+.back-btn {
+    display: inline-block !important;
+    margin-left: 16px !important;
+    white-space: nowrap !important;
+}

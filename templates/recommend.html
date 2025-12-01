@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recommended Restaurants</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <!-- Header with Back Button -->
+    <header class="hero small header-flex">
+        <div>
+            <h2>Recommended Restaurants</h2>
+            <p>Results for: <b>{{ cuisine }}</b> in <b>{{ city }}</b></p>
+            <div class="back-wrapper">
+                <a href="/" class="back-btn">← Back</a>
+            </div>
+        </div>
+    </header>
+    <!-- Results -->
+    <main class="results">
+    {% if results %}
+        <div class="grid">
+            {% for r in results %}
+            <div class="card-small">
+                <h3>{{ r.name }}</h3>
+                <div class="meta">{{ r.cuisines }}</div>
+                <div class="info">City: {{ r.city }} &bull; Cost for two: {{ r.cost }} &bull; Rating: {{ r.rating }}</div>
+                <a href="{{ r.url }}" target="_blank" class="visit">View</a>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty">No restaurants found for your search.</div>
+    {% endif %}
+    </main>
+</div>
+</body>
+</html>

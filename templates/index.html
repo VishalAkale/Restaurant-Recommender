@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Restaurant Recommender — Task 2</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <header class="hero">
+      <h1>Restaurant Recommender</h1>
+      <p>Smart suggestions using Cuisine · City · Cost · Rating</p>
+    </header>
+
+    <main class="card">
+      <form id="searchForm" method="post" action="/recommend">
+        
+        <div class="row">
+          <label>City</label>
+          <input id="cityInput" name="city" list="cityList" placeholder="Type or select city" autocomplete="off"/>
+          <datalist id="cityList">
+            {% for c in cities %}
+              <option value="{{ c }}"></option>
+            {% endfor %}
+          </datalist>
+        </div>
+
+        <div class="row">
+          <label>Cuisine</label>
+          <input id="cuisineInput" name="cuisine" placeholder="e.g. North Indian, Chinese" autocomplete="off"/>
+          <div id="suggestions" class="suggestions"></div>
+        </div>
+
+        <div class="row double">
+          <div>
+            <label>Max Cost for Two (optional)</label>
+            <input name="max_cost" type="number" min="0" placeholder="e.g. 1000"/>
+          </div>
+
+          <div>
+            <label>Min Rating (0.0 - 5.0)</label>
+            <input name="min_rating" type="number" step="0.1" min="0" max="5" placeholder="e.g. 4.0"/>
+          </div>
+        </div>
+
+        <div class="row">
+          <button id="searchBtn" class="btn">Get Recommendations</button>
+        </div>
+
+      </form>
+    </main>
+
+    <footer class="footer">
+      <small>Theme: Electric Blue · Cyan · Rich Black</small>
+    </footer>
+  </div>
+
+  <script>
+    const SUGGEST_URL = "/suggest_cuisines";
+  </script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
