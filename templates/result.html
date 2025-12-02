@@ -8,19 +8,33 @@
 </head>
 <body>
 <div class="container">
+    
     {% include "header.html" %}
-    <!-- Your existing results/content section below -->
+    
     <main class="results">
     {% if results %}
         <div class="grid">
             {% for r in results %}
             <div class="card-small">
+                
                 <h3>{{ r.name }}</h3>
+                
                 <div class="meta">{{ r.cuisines }}</div>
+                
                 <div class="info">
-                     City: {{ r.city }} &bull; Cost for two: {{ r.cost }} &bull; Rating: {{ r.rating }}
+                    City: {{ r.city }} &bull; 
+                    Cost for two: ₹{{ r.cost_for_two }} &bull; 
+                    Rating: {{ r.rating }}
                 </div>
-                <a href="{{ r.url }}" target="_blank" class="visit">View</a>
+
+                <!-- ⭐ Updated "View" button using Google Maps Search -->
+                <a 
+                    href="https://www.google.com/maps/search/?api=1&query={{ r.name | urlencode }}+{{ r.city | urlencode }}" 
+                    target="_blank" 
+                    class="visit">
+                    View
+                </a>
+
             </div>
             {% endfor %}
         </div>
@@ -28,6 +42,7 @@
         <div class="empty">No restaurants found for your search.</div>
     {% endif %}
     </main>
+
 </div>
 </body>
 </html>

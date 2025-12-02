@@ -1,0 +1,12 @@
+{
+  "cities": {
+    "Bras�_Lia": "Brasília",
+    "S��O Paulo": "São Paulo",
+    "��Stanbul": "İstanbul"
+  },
+  "cuisines": {
+    "B�_Rek": "Börek",
+    "D�_Ner": "Döner",
+    "Caf��": "Café"
+  }
+}
